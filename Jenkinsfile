@@ -2,12 +2,12 @@ pipeline {
     agent any
     environment {
         IMAGE_NAME = "myflaskapp"
-        DOCKERHUB_USER = "<your-dockerhub-username>"
+        DOCKERHUB_USER = "namrata181"
     }
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/<your-username>/simple-flask-app.git'
+                git branch: 'main', url: 'https://github.com/namrata04g/simple-flask-app.git'
             }
         }
         stage('Build Docker Image') {
@@ -32,4 +32,3 @@ pipeline {
         }
     }
 }
- 
