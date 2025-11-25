@@ -4,12 +4,13 @@ pipeline {
         IMAGE_NAME = "myflaskapp"
         DOCKERHUB_USER = "namrata181"
     }
-    stages {
-        stage('Checkout Code') {
-            steps {
-                git branch: 'main', url: 'https://github.com/namrata04g/simple-flask-app.git'
-            }
-        }
+     stage('Checkout Code') {
+     steps {
+        git branch: 'main',
+            credentialsId: 'github-private',
+            url: 'https://github.com/namrata04g/simple-flask-app-for-jenkins.git'
+    }
+}
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $IMAGE_NAME .'
